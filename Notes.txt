@@ -1,0 +1,61 @@
+Set a detailed description of the product with minimum base price
+Bidders need to register for the auction
+Each bid placed increases the amount by a set amount. This amount is determined by product and base price
+When the countdown is about to end, any bids placed may add a predetermined number of seconds to the clock
+The bid balance(product price) is is adjusted automatically after every successful bid
+
+While the bid is on, does the auction creator get to see who is bidding?
+
+
+
+User
+-- Name(Derive name from email)
+-- email - unique, required
+-- password
+-- PhoneNo - unique, required
+-- UserType - admin or not
+
+Bidder
+-- UserID fk to User
+-- BidID fk to Bid
+-- ProductID fk to Product
+-- AuctionID fk to Auction
+-- isSuccessful
+
+Seller
+-- UserId fk to User
+-- ProductId fk to Product
+-- AuctionId fk to Auction
+-- isClosed
+-- isSuccessful
+
+Auction
+-- Description
+-- ProductQualityParameters
+-- SellerId fk to Seller
+-- ProductId fk to Product
+-- isClosed
+-- isSuccessful
+-- ProductQuantity
+-- ProductQuantityMetric
+-- TotalQuantity
+-- OpeningAuctionUnitAmount
+-- CurrentAuctionUnitAmount
+-- ClosedAuctionUnitAmount
+-- OpeningAuctionTotalAmount
+-- CurrentAuctionTotalAmount
+-- ClosedAuctionTotalAmount
+-- AuctionOpeningDateTime
+-- AuctionClosingDateTime
+
+Bid
+-- AuctionId fk to Auction
+-- BidderId fk to Bidder
+-- CurrentBidUnitAmount
+-- NextBidMinUnitAmount
+
+Product
+-- Name
+-- Description
+-- QuantityMetric
+-- MinAuctionUnitAmount
